@@ -1,6 +1,6 @@
 use warehouse KYLESUSHI_EXP2_WH;
 use database kylesushi_exp2_db;
-use schema silver;
+use schema gold;
 
 -- Table Create: Total Revenue & Profit of 'Branch' by day
 CREATE OR REPLACE VIEW GOLD.BRCS_REV_PRF_VIEW AS
@@ -119,7 +119,6 @@ SELECT STORE_ID
  ORDER BY WASTE_DATE
         , STORE_ID;
 
-USE SCHEMA SILVER;
 
 -- 1. Expiry (Costs) Analysis(Metrics)
 CREATE OR REPLACE VIEW GOLD.EXPIRY_COST_METRICS_VIEW AS
