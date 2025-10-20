@@ -218,22 +218,6 @@ create or replace table transactions (
   created_at timestamp_ntz
 );
 
-
--- source: data/waste_tracking.csv
-create or replace table waste_tracking (
-  waste_id varchar,
-  store_id varchar,
-  ingredient_id varchar,
-  batch_id varchar,
-  waste_date date,
-  quantity_wasted float,
-  unit_cost float,
-  total_cost float,
-  waste_reason varchar,
-  reported_by varchar,
-  created_at date
-);
-
 create or replace table dates (
     date date primary key,
     date_display varchar(20),
@@ -331,9 +315,3 @@ copy into transactions
   from @csv_stage/transactions.csv
 file_format = (type=csv field_optionally_enclosed_by='"' skip_header=1 null_if=('','null','null') escape_unenclosed_field=none)
 on_error = continue;
-
-copy into waste_tracking
-  from @csv_stage/waste_tracking.csv
-file_format = (type=csv field_optionally_enclosed_by='"' skip_header=1 null_if=('','null','null') escape_unenclosed_field=none)
-on_error = continue;
-
